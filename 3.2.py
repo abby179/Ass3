@@ -7,39 +7,40 @@ class BSTree:  # Binary Search Tree
         if self.root == None:
             return 0
         else:
-            return self.root.depth()  # BSNode depth as assignment
-
+            return self.root.maxDepth()  # use BSNode maxDepth function
+    	
     def __str__(self):
         if self.root == None:
             return "EmptyBSTree"
         else:
             return self.root.__str__()
 
-    # insert new values into the tree
+    # insert new values into the tree (move from BSNode to BSTree)
     def insert(self, val):
         if self.root == None:
             self.root = BSNode(val)
         else:
             self._insert(val, self.root)
 	
-	def _insert(self, newVal, node):
-		if newVal < node.value:
+    def _insert(self, newVal, node):
+        if newVal < node.value:
             if node.left == None:
                 node.left = BSNode(newVal)
             else:
                 self._insert(newVal, node.left)
-
+				
         elif newVal > node.value:
             if node.right == None:
                 node.right = BSNode(newVal)
             else:
                 self._insert(newVal, node.right)
+	
 
-    #def sort(self):
-    #    if self.root != None:
-    #        return self.root.sort
-    #    else:
-    #        return "EmptyBSTree"
+    def sort(self):
+        if self.root != None:
+            return self.root.sort_value() # use BSNode sort_value function
+        else:
+            return "EmptyBSTree"
 
 
 class BSNode:  # Binary Search Tree Node
@@ -66,19 +67,6 @@ class BSNode:  # Binary Search Tree Node
             outputString = outputString + self.right.strIndent(ind + ' ')
         return outputString
 
-    #def insert(self, newVal):
-
-    #    if newVal < self.value:
-    #        if self.left == None:
-    #            self.left = BSNode(newVal)
-    #        else:
-    #            self.left.insert(newVal)
-
-    #    elif newVal > self.value:
-    #        if self.right == None:
-    #            self.right = BSNode(newVal)
-    #        else:
-    #            self.right.insert(newVal)
 
     # maximum depth of the tree
     def maxDepth(self):
@@ -109,22 +97,19 @@ class BSNode:  # Binary Search Tree Node
 
 
 def treeSort(alist):
-    treeSort= BSNode()
+    treeSort= BSTree()
     for item in alist:
         treeSort.insert(item)
-    return treeSort.sort_value()
+    return treeSort.sort()
 
 
 tree = BSTree()
 #tree.root = BSNode(7)
-#for i in [98, 78, 6, 5, 47, 23]:
-#    tree.root.insert(i)
-#print(tree.root.sort_value())
-#print(tree.root.maxDepth())
-#print(treeSort([4,5,7,8,1,2,8]))
-for i in ['7', '98', '78', '6', '5', '47', '23']:
+for i in [7, 98, 78, 6, 5, 47, 23]:
     tree.insert(i)
-print(tree)
+print(tree.sort())
+print(tree.depth())
+print(treeSort([4,5,7,8,1,2,8]))
 
 
 
