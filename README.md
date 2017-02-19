@@ -1,2 +1,2 @@
-# Ass3
-This repository is for assignment 3
+# Ass
+This repository is for assignments
