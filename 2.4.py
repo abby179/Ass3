@@ -32,8 +32,8 @@
 				else:
 					cost = 1
 				minNum = min(self.table[col][row-1][0] + 1,      # deletion
-							 self.table[col-1][row][0] + 1,      # insertion
-							 self.table[col-1][row-1][0] + cost) # substitution
+					     self.table[col-1][row][0] + 1,      # insertion
+					     self.table[col-1][row-1][0] + cost) # substitution
 							 
 				if minNum == self.table[col-1][row-1][0] + cost:
 					if cost == 0:
