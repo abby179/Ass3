@@ -1,3 +1,4 @@
+#can not proceed duplicate element
 class BSTree:  # Binary Search Tree
 
     def __init__(self):
